@@ -9,11 +9,11 @@ terraform {
 provider "google" {
   version = "3.42.0"
 
-  credentials = file("../keys/terraform-sa.json")
+  credentials = file(var.credentials_file)
 
-  project = "terraform-284122"
-  region  = "us-central1"
-  zone    = "us-central1-c"
+  project = var.project
+  region  = var.region
+  zone    = var.zone
 }
 
 resource "google_compute_network" "vpc_network" {
