@@ -1,13 +1,13 @@
 terraform {
   required_providers {
     google = {
-      source = "hashicorp/google"
+      source  = "hashicorp/google"
+      version = "4.51.0"
     }
   }
 }
 
 provider "google" {
-  version = "3.42.0"
 
   credentials = file(var.credentials_file)
 
@@ -27,7 +27,7 @@ resource "google_compute_address" "vm_static_ip" {
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
   machine_type = var.machine_types[var.environment]
-  tags         = ["web", "dev"]
+  tags         = ["web", "dev", "test"]
 
   provisioner "local-exec" {
     command = "echo ${google_compute_instance.vm_instance.name}:  ${google_compute_instance.vm_instance.network_interface[0].access_config[0].nat_ip} >> ip_address.txt"
@@ -35,7 +35,7 @@ resource "google_compute_instance" "vm_instance" {
 
   boot_disk {
     initialize_params {
-      image = "cos-cloud/cos-stable"
+      image = "debian-cloud/debian-11"
     }
   }
 

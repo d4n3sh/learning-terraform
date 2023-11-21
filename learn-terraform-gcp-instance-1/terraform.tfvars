@@ -1,7 +1,7 @@
-project = "terraform-284122"
+project          = "d4n3sh-sandbox"
 credentials_file = "../keys/terraform-sa.json"
-cidrs = [ "10.0.0.0/16", "10.1.0.0/16" ]
-region = "us-central1"
+cidrs            = ["10.0.0.0/16", "10.1.0.0/16"]
+region           = "us-central1"
 
 machine_types = {
   dev  = "f1-micro"

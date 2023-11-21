@@ -31,3 +31,5 @@ override.tf.json
 # Ignore everything in the keys dir
 keys/
 terraform-docker-demo-1/.terraform.lock.hcl
+learn-terraform-gcp-instance-1/.terraform.lock.hcl
+learn-terraform-gcp-instance-1/ip_address.txt

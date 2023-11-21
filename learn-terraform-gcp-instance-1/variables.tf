@@ -1,6 +1,6 @@
 variable "project" {
-  type = string
-  default = "terraform-284122"
+  type    = string
+  default = "d4n3sh-sandbox"
 }
 
 variable "credentials_file" {
@@ -28,7 +28,7 @@ variable "environment" {
 }
 
 variable "machine_types" {
-  type    = map
+  type = map(any)
   default = {
     dev  = "f1-micro"
     test = "n1-highcpu-32"
